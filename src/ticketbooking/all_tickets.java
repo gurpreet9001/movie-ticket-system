@@ -38,17 +38,17 @@ public class all_tickets extends javax.swing.JInternalFrame implements myvariabl
  
  try
  {
-    String myquery1="select distinct(city) from ticket_booked";
+    String myquery1="select audi from hall_list";
     PreparedStatement mystatement1=myconnection1.prepareStatement(myquery1);
     ResultSet myresult1=mystatement1.executeQuery();
     
     if(myresult1.next()){
     do{
-    citybox.addItem(myresult1.getString("city"));
+    audibox.addItem(myresult1.getString("audi"));
     }while(myresult1.next());
     }
   
-    citybox.setSelectedIndex(0);
+    audibox.setSelectedIndex(0);
    
  
  }
@@ -80,20 +80,20 @@ public class all_tickets extends javax.swing.JInternalFrame implements myvariabl
     
     if(myresult.next()){
       DefaultTableModel mymodel=(DefaultTableModel) jTable1.getModel();
-        String city,theater,movie,username,no_of_tickets,date,price,total,showdate,time;
+        String audi,movie,luxury,price,tickets,id,total,bookdate,showtime,showdate;
         do{
-    city=myresult.getString("city");
-    theater=myresult.getString("theater");
+    audi=myresult.getString("audi");
     movie=myresult.getString("movie");
-    username=myresult.getString("username");
-    no_of_tickets=myresult.getString("no_of_tickets");
-    date=myresult.getString("date");
+    luxury=myresult.getString("luxury");
     price=myresult.getString("price");
-    showdate=myresult.getString("showdate");
+    tickets=myresult.getString("tickets");
+    id=myresult.getString("id");
     total=myresult.getString("total");
-    time=myresult.getString("time");
+    bookdate=myresult.getString("bookdate");
+    showdate=myresult.getString("showdate");
+    showtime=myresult.getString("showtime");
     
-    mymodel.addRow(new Object[]{city,theater,movie,username,no_of_tickets,date,price,total,showdate,time});
+    mymodel.addRow(new Object[]{audi,movie,luxury,price,tickets,id,total,bookdate,showtime,showdate});
     }while(myresult.next());
     
     }
@@ -102,7 +102,7 @@ public class all_tickets extends javax.swing.JInternalFrame implements myvariabl
  }
  catch(Exception e)
  {
-    JOptionPane.showMessageDialog(rootPane, "Error in Query 2 " + e.getMessage());
+    JOptionPane.showMessageDialog(rootPane, "Error in Query 3 " + e.getMessage());
  }
  finally
  {
@@ -128,14 +128,9 @@ public class all_tickets extends javax.swing.JInternalFrame implements myvariabl
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        citybox = new javax.swing.JComboBox<>();
-        theaterbox = new javax.swing.JComboBox<>();
-        date1 = new com.toedter.calendar.JDateChooser();
-        date2 = new com.toedter.calendar.JDateChooser();
-        jLabel1 = new javax.swing.JLabel();
-        moviebox = new javax.swing.JComboBox<>();
+        audibox = new javax.swing.JComboBox<>();
+        showtimebox = new javax.swing.JComboBox<>();
         databutton = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
         databutton1 = new javax.swing.JButton();
 
         setClosable(true);
@@ -149,7 +144,7 @@ public class all_tickets extends javax.swing.JInternalFrame implements myvariabl
 
             },
             new String [] {
-                "City", "Theater", "Movie", "Username", "No_of_tickets", "Book Date", "Price", "Total", "Show Date", "time"
+                "Audi", "Movie", "Luxury", "Price ", "Id", "Tickets", "Total", "Book Date", "Show Time", "Show Date"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -162,26 +157,17 @@ public class all_tickets extends javax.swing.JInternalFrame implements myvariabl
         });
         jScrollPane1.setViewportView(jTable1);
 
-        citybox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choose City" }));
-        citybox.addActionListener(new java.awt.event.ActionListener() {
+        audibox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choose Audi" }));
+        audibox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cityboxActionPerformed(evt);
+                audiboxActionPerformed(evt);
             }
         });
 
-        theaterbox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choose theater name" }));
-        theaterbox.addActionListener(new java.awt.event.ActionListener() {
+        showtimebox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choose Showtime", "6 AM", "9 AM", "1 PM", "4 PM", "7 PM", "11 PM" }));
+        showtimebox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                theaterboxActionPerformed(evt);
-            }
-        });
-
-        jLabel1.setText(" From                                                      To");
-
-        moviebox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choose movie name" }));
-        moviebox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                movieboxActionPerformed(evt);
+                showtimeboxActionPerformed(evt);
             }
         });
 
@@ -192,8 +178,6 @@ public class all_tickets extends javax.swing.JInternalFrame implements myvariabl
                 databuttonActionPerformed(evt);
             }
         });
-
-        jLabel2.setText("DATE");
 
         databutton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ticketbooking/printer.png"))); // NOI18N
         databutton1.setText("Print");
@@ -207,54 +191,35 @@ public class all_tickets extends javax.swing.JInternalFrame implements myvariabl
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1060, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(citybox, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(theaterbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(moviebox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(date1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(58, 58, 58)
-                                .addComponent(date2, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(85, 85, 85)
-                .addComponent(databutton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 278, Short.MAX_VALUE)
+                .addGap(24, 878, Short.MAX_VALUE)
                 .addComponent(databutton1, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(58, 58, 58))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(63, 63, 63)
+                .addComponent(audibox, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(55, 55, 55)
+                .addComponent(showtimebox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(83, 83, 83)
+                .addComponent(databutton)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(37, 37, 37)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(citybox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(moviebox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(theaterbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(databutton)
+                    .addComponent(showtimebox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(audibox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(4, 4, 4)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(date1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(date2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 29, Short.MAX_VALUE)
+                        .addGap(0, 53, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(databutton)
-                            .addComponent(databutton1))
+                        .addComponent(databutton1)
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
 
@@ -276,54 +241,47 @@ public class all_tickets extends javax.swing.JInternalFrame implements myvariabl
     }// </editor-fold>//GEN-END:initComponents
 
     private void databuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_databuttonActionPerformed
-         try
+  DefaultTableModel model = (DefaultTableModel)this.jTable1.getModel();
+model.setRowCount(0);
+        try
  {
  Connection myconnection;
  myconnection=DriverManager.getConnection(PATH+PLACE, USERNAME, PASS);
  
  try
  {
-    String myquery="select * from ticket_booked where city=? and theater=? and movie=? and date between ? and ?";
+    
+    String myquery="select * from ticket_booked where audi=? and showtime=?";
      PreparedStatement mystatement=myconnection.prepareStatement(myquery);
-                mystatement.setString(2, theaterbox.getSelectedItem().toString());
-                mystatement.setString(1, citybox.getSelectedItem().toString());
-                mystatement.setString(3, moviebox.getSelectedItem().toString());
-                 SimpleDateFormat myformat=new SimpleDateFormat("yyyy-MM-dd");
-                mystatement.setString(4, myformat.format(date1.getDate()));
-                SimpleDateFormat myformat1=new SimpleDateFormat("yyyy-MM-dd");
-                mystatement.setString(5, myformat1.format(date2.getDate()));
+                mystatement.setString(2, showtimebox.getSelectedItem().toString());
+                mystatement.setString(1, audibox.getSelectedItem().toString());
                 
          ResultSet myresult=mystatement.executeQuery();
                 
           
-    if(myresult.next()){
+     if(myresult.next()){
       DefaultTableModel mymodel=(DefaultTableModel) jTable1.getModel();
-        String city,theater,movie,username,no_of_tickets,date,price,total,showdate,time;
-        mymodel.setRowCount(0);
+        String audi,movie,luxury,price,tickets,id,total,bookdate,showtime,showdate;
         do{
-    city=myresult.getString("city");
-    theater=myresult.getString("theater");
+    audi=myresult.getString("audi");
     movie=myresult.getString("movie");
-    username=myresult.getString("username");
-    no_of_tickets=myresult.getString("no_of_tickets");
-    date=myresult.getString("date");
+    luxury=myresult.getString("luxury");
     price=myresult.getString("price");
-    showdate=myresult.getString("showdate");
+    tickets=myresult.getString("tickets");
+    id=myresult.getString("id");
     total=myresult.getString("total");
-    time=myresult.getString("time");
+    bookdate=myresult.getString("bookdate");
+    showdate=myresult.getString("showdate");
+    showtime=myresult.getString("showtime");
     
-    mymodel.addRow(new Object[]{city,theater,movie,username,no_of_tickets,date,price,total,showdate,time});
+    mymodel.addRow(new Object[]{audi,movie,luxury,price,tickets,id,total,bookdate,showtime,showdate});
     }while(myresult.next());
     
     }
     
       
-                    theaterbox.setSelectedIndex(0);
-                    citybox.setSelectedIndex(0);
-                    moviebox.setSelectedIndex(0);
-                    date1.setDate(null);
-                     date2.setDate(null);
-              
+                    showtimebox.setSelectedIndex(0);
+                    audibox.setSelectedIndex(0);
     
  
  }
@@ -342,58 +300,11 @@ public class all_tickets extends javax.swing.JInternalFrame implements myvariabl
  }
     }//GEN-LAST:event_databuttonActionPerformed
 
-    private void movieboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_movieboxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_movieboxActionPerformed
+    private void showtimeboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showtimeboxActionPerformed
 
-    private void theaterboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_theaterboxActionPerformed
-                      try
- {
- Connection myconnection;
- myconnection=DriverManager.getConnection(PATH+PLACE, USERNAME, PASS);
- 
- try
- {
-    String myquery="select movie from movies where theatername=?";
-    PreparedStatement mystatement=myconnection.prepareStatement(myquery);
-    mystatement.setString(1,theaterbox.getSelectedItem().toString());
-    ResultSet myresult=mystatement.executeQuery();
-    
-    
-    
-    
-    
-    if(myresult.next()){
-        moviebox.removeAllItems();
-        moviebox.addItem("Choose movies now");
-    do{
-    moviebox.addItem(myresult.getString("movie"));
-    }while(myresult.next());
-    
-    }
-      else     
-    moviebox.setSelectedIndex(0);
-    
- 
- }
- catch(Exception e)
- {
-    //JOptionPane.showMessageDialog(rootPane, "Error in Query 2 " + e.getMessage());
- }
- finally
- {
-    myconnection.close();
- }
- }
- catch(Exception e)
- {
- JOptionPane.showMessageDialog(rootPane, "Error in Connection " + e.getMessage());
- }
-                                             
- 
-    }//GEN-LAST:event_theaterboxActionPerformed
+    }//GEN-LAST:event_showtimeboxActionPerformed
 
-    private void cityboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cityboxActionPerformed
+    private void audiboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_audiboxActionPerformed
                        try
  {
  Connection myconnection;
@@ -403,7 +314,7 @@ public class all_tickets extends javax.swing.JInternalFrame implements myvariabl
  {
     String myquery="select distinct(theater) from ticket_booked where city=?";
     PreparedStatement mystatement=myconnection.prepareStatement(myquery);
-    mystatement.setString(1,citybox.getSelectedItem().toString());
+    mystatement.setString(1,audibox.getSelectedItem().toString());
     ResultSet myresult=mystatement.executeQuery();
     
     
@@ -411,15 +322,15 @@ public class all_tickets extends javax.swing.JInternalFrame implements myvariabl
     
     
     if(myresult.next()){
-        theaterbox.removeAllItems();
-        theaterbox.addItem("Choose theater now");
+        showtimebox.removeAllItems();
+        showtimebox.addItem("Choose theater now");
     do{
-    theaterbox.addItem(myresult.getString("theater"));
+    showtimebox.addItem(myresult.getString("theater"));
     }while(myresult.next());
     
     }
            
-    theaterbox.setSelectedIndex(0);
+    showtimebox.setSelectedIndex(0);
     
  
  }
@@ -436,7 +347,7 @@ public class all_tickets extends javax.swing.JInternalFrame implements myvariabl
  {
  JOptionPane.showMessageDialog(rootPane, "Error in Connection " + e.getMessage());
  }
-    }//GEN-LAST:event_cityboxActionPerformed
+    }//GEN-LAST:event_audiboxActionPerformed
 
     private void databutton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_databutton1ActionPerformed
         MessageFormat headerFormat = new MessageFormat("Booked Tickets");
@@ -450,17 +361,12 @@ public class all_tickets extends javax.swing.JInternalFrame implements myvariabl
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> citybox;
+    private javax.swing.JComboBox<String> audibox;
     private javax.swing.JButton databutton;
     private javax.swing.JButton databutton1;
-    private com.toedter.calendar.JDateChooser date1;
-    private com.toedter.calendar.JDateChooser date2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JComboBox<String> moviebox;
-    private javax.swing.JComboBox<String> theaterbox;
+    private javax.swing.JComboBox<String> showtimebox;
     // End of variables declaration//GEN-END:variables
 }

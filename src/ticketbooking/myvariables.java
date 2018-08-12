@@ -7,7 +7,7 @@ package ticketbooking;
 
 public interface myvariables {
     String PATH="jdbc:mysql://localhost/";
-    String PLACE="ticketdb";
+    String PLACE="moviebook";
     String USERNAME="root";
     String PASS="";
 }

@@ -107,7 +107,7 @@ public class parent extends javax.swing.JFrame {
 
         jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ticketbooking/31048228-a9559664-a621-11e7-822d-05a25aa27032.png"))); // NOI18N
-        jMenuItem2.setText("New Theater");
+        jMenuItem2.setText("Add Auditorium");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem2ActionPerformed(evt);
@@ -256,7 +256,7 @@ public class parent extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        cinema obj=new cinema();
+        add_hall obj=new add_hall();
         jDesktopPane1.add(obj);
         obj.show();
     }//GEN-LAST:event_jMenuItem2ActionPerformed

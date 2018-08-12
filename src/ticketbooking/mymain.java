@@ -47,7 +47,7 @@ public class mymain implements myvariables {
 
  if(myresult.next())
  {
- Login obj=new Login();
+Login obj=new Login();
  obj.setVisible(true);
  }
  else

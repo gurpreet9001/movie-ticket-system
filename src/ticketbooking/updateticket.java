@@ -22,6 +22,9 @@ public class updateticket extends javax.swing.JInternalFrame implements myvariab
      */
     public updateticket() {
         initComponents();
+        java.util.Date obj=new java.util.Date();
+        SimpleDateFormat myformat=new SimpleDateFormat("yyyy-MM-dd");
+        datebox.setText(myformat.format(obj));
         
           
     }
@@ -41,18 +44,14 @@ public class updateticket extends javax.swing.JInternalFrame implements myvariab
         ticketbox = new javax.swing.JTextField();
         tickets1 = new javax.swing.JLabel();
         date = new javax.swing.JLabel();
-        datebox = new com.toedter.calendar.JDateChooser();
-        userID1 = new javax.swing.JLabel();
         movielabel = new javax.swing.JLabel();
         userID3 = new javax.swing.JLabel();
-        citylabel = new javax.swing.JLabel();
-        userID5 = new javax.swing.JLabel();
-        theaterlabel = new javax.swing.JLabel();
         search = new javax.swing.JButton();
         tickets2 = new javax.swing.JLabel();
         datelabel = new javax.swing.JLabel();
         timelabel = new javax.swing.JLabel();
         tickets3 = new javax.swing.JLabel();
+        datebox = new javax.swing.JLabel();
         update = new javax.swing.JButton();
 
         setClosable(true);
@@ -67,17 +66,9 @@ public class updateticket extends javax.swing.JInternalFrame implements myvariab
 
         date.setText("Updated Date");
 
-        userID1.setText("City");
-
         movielabel.setText("...");
 
         userID3.setText("Movie");
-
-        citylabel.setText("...");
-
-        userID5.setText("Theater");
-
-        theaterlabel.setText("...");
 
         search.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ticketbooking/search.png"))); // NOI18N
         search.setText("Search Details");
@@ -95,6 +86,8 @@ public class updateticket extends javax.swing.JInternalFrame implements myvariab
 
         tickets3.setText("Time");
 
+        datebox.setText("...");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -103,35 +96,30 @@ public class updateticket extends javax.swing.JInternalFrame implements myvariab
                 .addGap(60, 60, 60)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tickets2)
-                            .addComponent(tickets3)
-                            .addComponent(date)
-                            .addComponent(userID1)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(tickets1)
-                                    .addComponent(userID3)
-                                    .addComponent(userID5))
-                                .addGap(66, 66, 66)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(theaterlabel, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(movielabel, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(ticketbox, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(citylabel, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(datebox, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(userID)
                                 .addGap(62, 62, 62)
                                 .addComponent(useridbox, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(timelabel, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(tickets2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(datelabel, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
-                        .addComponent(search)))
+                        .addComponent(search))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tickets1)
+                            .addComponent(date)
+                            .addComponent(tickets3)
+                            .addComponent(userID3))
+                        .addGap(65, 65, 65)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(movielabel, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(datebox, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ticketbox, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(timelabel, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -142,35 +130,27 @@ public class updateticket extends javax.swing.JInternalFrame implements myvariab
                     .addComponent(userID)
                     .addComponent(useridbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(search))
-                .addGap(18, 18, 18)
+                .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tickets2)
                     .addComponent(datelabel))
-                .addGap(26, 26, 26)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tickets3)
                     .addComponent(timelabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(userID1)
-                    .addComponent(citylabel))
-                .addGap(35, 35, 35)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(userID5)
-                    .addComponent(theaterlabel))
-                .addGap(32, 32, 32)
+                .addGap(45, 45, 45)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(userID3)
                     .addComponent(movielabel))
-                .addGap(33, 33, 33)
+                .addGap(40, 40, 40)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(ticketbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tickets1))
+                .addGap(52, 52, 52)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tickets1)
-                    .addComponent(ticketbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(datebox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(date))
-                .addGap(21, 21, 21))
+                    .addComponent(date)
+                    .addComponent(datebox))
+                .addGap(69, 69, 69))
         );
 
         update.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ticketbooking/add.png"))); // NOI18N
@@ -189,19 +169,19 @@ public class updateticket extends javax.swing.JInternalFrame implements myvariab
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(174, 174, 174)
-                        .addComponent(update)))
-                .addContainerGap(23, Short.MAX_VALUE))
+                        .addComponent(update))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(16, 16, 16)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(update)
                 .addGap(28, 28, 28))
         );
@@ -216,14 +196,12 @@ public class updateticket extends javax.swing.JInternalFrame implements myvariab
  
  try
  {
- String myquery="update ticket_booked set no_of_tickets=?,date=?"
- + " where username=?";
+ String myquery="update ticket_booked set tickets=?"
+ + " where id=?";
  PreparedStatement mystatement = myconnection.prepareStatement(myquery);
  
- mystatement.setString(3, useridbox.getText());
+ mystatement.setString(2, useridbox.getText());
  mystatement.setString(1, ticketbox.getText());
-  SimpleDateFormat myformat=new SimpleDateFormat("yyyy-MM-dd");
-                mystatement.setString(2, myformat.format(datebox.getDate()));
  
  if(mystatement.executeUpdate()>0)
  {
@@ -256,7 +234,7 @@ public class updateticket extends javax.swing.JInternalFrame implements myvariab
  
  try
  {
- String myquery="select * from ticket_booked where username=?";
+ String myquery="select * from ticket_booked where id=?";
  PreparedStatement mystatement = myconnection.prepareStatement(myquery);
  mystatement.setString(1, useridbox.getText());
  ResultSet myresult=mystatement.executeQuery();
@@ -264,12 +242,10 @@ public class updateticket extends javax.swing.JInternalFrame implements myvariab
  if(myresult.next())
  {
      update.setEnabled(true);
- ticketbox.setText(myresult.getString("no_of_tickets"));
- citylabel.setText(myresult.getString("city"));
- theaterlabel.setText(myresult.getString("theater"));
+ ticketbox.setText(myresult.getString("tickets"));
  movielabel.setText(myresult.getString("movie"));
- datelabel.setText(myresult.getString("date"));
- timelabel.setText(myresult.getString("time"));
+ datelabel.setText(myresult.getString("showdate"));
+ timelabel.setText(myresult.getString("showtime"));
  }
  else
  {
@@ -293,14 +269,12 @@ public class updateticket extends javax.swing.JInternalFrame implements myvariab
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel citylabel;
     private javax.swing.JLabel date;
-    private com.toedter.calendar.JDateChooser datebox;
+    private javax.swing.JLabel datebox;
     private javax.swing.JLabel datelabel;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel movielabel;
     private javax.swing.JButton search;
-    private javax.swing.JLabel theaterlabel;
     private javax.swing.JTextField ticketbox;
     private javax.swing.JLabel tickets1;
     private javax.swing.JLabel tickets2;
@@ -308,9 +282,7 @@ public class updateticket extends javax.swing.JInternalFrame implements myvariab
     private javax.swing.JLabel timelabel;
     private javax.swing.JButton update;
     private javax.swing.JLabel userID;
-    private javax.swing.JLabel userID1;
     private javax.swing.JLabel userID3;
-    private javax.swing.JLabel userID5;
     private javax.swing.JTextField useridbox;
     // End of variables declaration//GEN-END:variables
 }

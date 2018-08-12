@@ -31,16 +31,12 @@ public class deleteticket extends javax.swing.JInternalFrame implements myvariab
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        city = new javax.swing.JLabel();
-        theater = new javax.swing.JLabel();
         movie = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         userID = new javax.swing.JLabel();
         useridbox = new javax.swing.JTextField();
         tickets1 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
-        citybox = new javax.swing.JLabel();
-        theaterbox = new javax.swing.JLabel();
         moviebox = new javax.swing.JLabel();
         ticketbox = new javax.swing.JLabel();
         tickets2 = new javax.swing.JLabel();
@@ -53,10 +49,6 @@ public class deleteticket extends javax.swing.JInternalFrame implements myvariab
         setMaximizable(true);
         setResizable(true);
         setTitle("Cancel Ticket");
-
-        city.setText("City");
-
-        theater.setText("Theater");
 
         movie.setText("Movie");
 
@@ -81,15 +73,11 @@ public class deleteticket extends javax.swing.JInternalFrame implements myvariab
             }
         });
 
-        citybox.setText("...");
-
-        theaterbox.setText("...");
-
         moviebox.setText("...");
 
         ticketbox.setText("...");
 
-        tickets2.setText("Date");
+        tickets2.setText("Booking Date");
 
         datebox.setText("...");
 
@@ -104,14 +92,13 @@ public class deleteticket extends javax.swing.JInternalFrame implements myvariab
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(100, 100, 100)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(city)
                     .addComponent(movie)
-                    .addComponent(theater)
                     .addComponent(userID)
                     .addComponent(tickets1)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(tickets3)
-                        .addComponent(tickets2)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(tickets3))
+                    .addComponent(tickets2))
                 .addGap(108, 108, 108)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -120,19 +107,17 @@ public class deleteticket extends javax.swing.JInternalFrame implements myvariab
                         .addComponent(jButton1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(datebox, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(ticketbox, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
-                                .addComponent(datebox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(timebox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(citybox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(moviebox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(theaterbox, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(moviebox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(187, 187, 187)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(222, 222, 222))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -142,33 +127,25 @@ public class deleteticket extends javax.swing.JInternalFrame implements myvariab
                     .addComponent(userID)
                     .addComponent(useridbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1))
-                .addGap(27, 27, 27)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(theater)
-                    .addComponent(theaterbox))
-                .addGap(35, 35, 35)
+                .addGap(76, 76, 76)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(movie)
                     .addComponent(moviebox))
-                .addGap(34, 34, 34)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(city)
-                    .addComponent(citybox))
-                .addGap(41, 41, 41)
+                .addGap(46, 46, 46)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tickets1)
                     .addComponent(ticketbox))
-                .addGap(38, 38, 38)
+                .addGap(37, 37, 37)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tickets2)
                     .addComponent(datebox))
-                .addGap(34, 34, 34)
+                .addGap(36, 36, 36)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(timebox)
-                    .addComponent(tickets3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                    .addComponent(tickets3)
+                    .addComponent(timebox))
+                .addGap(61, 61, 61)
                 .addComponent(jButton2)
-                .addGap(28, 28, 28))
+                .addContainerGap(74, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -178,7 +155,7 @@ public class deleteticket extends javax.swing.JInternalFrame implements myvariab
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -191,109 +168,100 @@ public class deleteticket extends javax.swing.JInternalFrame implements myvariab
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
- try
- {
- Connection myconnection = DriverManager.getConnection(PATH+PLACE, USERNAME,PASS); 
- 
- try
- {
- String myquery="select * from ticket_booked where username=?";
- PreparedStatement mystatement = myconnection.prepareStatement(myquery);
- mystatement.setString(1, useridbox.getText());
- ResultSet myresult=mystatement.executeQuery();
- 
- if(myresult.next())
- {
-     jButton2.setEnabled(true);
- citybox.setText(myresult.getString("city"));
-  theaterbox.setText(myresult.getString("theater"));
-   moviebox.setText(myresult.getString("movie"));
- ticketbox.setText(myresult.getString("no_of_tickets"));
-   datebox.setText(myresult.getString("date"));
-   timebox.setText(myresult.getString("time"));
-
-
- }
- else
- {
- JOptionPane.showMessageDialog(rootPane,"Wrong User ID");
- }
- }
- catch(Exception e)
- {
- JOptionPane.showMessageDialog(rootPane, "7 Error in Query due to " + e.getMessage());
- }
- finally
- {
- myconnection.close();
- }
- }
- catch(Exception e)
- {
- JOptionPane.showMessageDialog(rootPane, "Error in Connection due to " + e.getMessage());
- }
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
- int answer = JOptionPane.showConfirmDialog(rootPane, 
- "Do you really want to delete?", "Are you sure?", 
- JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
- 
- if(answer==JOptionPane.YES_OPTION)
- {
- try
- {
- Connection myconnection = DriverManager.getConnection(PATH+PLACE, USERNAME,PASS); 
- 
- try
- {
- String myquery="delete from ticket_booked where username=?";
- PreparedStatement mystatement = myconnection.prepareStatement(myquery);
- mystatement.setString(1, useridbox.getText());
- 
- if(mystatement.executeUpdate()>0)
- {
- JOptionPane.showMessageDialog(rootPane,"Deleted Successfully");
- ticketbox.setText("");
- citybox.setText("");
- theaterbox.setText("");
-   moviebox.setText("");
-   useridbox.setText("");
-   datebox.setText("");
-   timebox.setText("");
+        int answer = JOptionPane.showConfirmDialog(rootPane,
+            "Do you really want to delete?", "Are you sure?",
+            JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
 
- } 
- }
- catch(Exception e)
- {
- JOptionPane.showMessageDialog(rootPane, "2 Error in Query due to " + e.getMessage());
- }
- finally
- {
- myconnection.close();
- }
- }
- catch(Exception e)
- {
- JOptionPane.showMessageDialog(rootPane, "Error in Connection due to " + e.getMessage());
- }
- }
-         
+        if(answer==JOptionPane.YES_OPTION)
+        {
+            try
+            {
+                Connection myconnection = DriverManager.getConnection(PATH+PLACE, USERNAME,PASS);
+
+                try
+                {
+                    String myquery="delete from ticket_booked where id=?";
+                    PreparedStatement mystatement = myconnection.prepareStatement(myquery);
+                    mystatement.setString(1, useridbox.getText());
+
+                    if(mystatement.executeUpdate()>0)
+                    {
+                        JOptionPane.showMessageDialog(rootPane,"Deleted Successfully");
+                        ticketbox.setText("");
+                        moviebox.setText("");
+                        useridbox.setText("");
+                        datebox.setText("");
+                        timebox.setText("");
+
+                    }
+                }
+                catch(Exception e)
+                {
+                    JOptionPane.showMessageDialog(rootPane, "2 Error in Query due to " + e.getMessage());
+                }
+                finally
+                {
+                    myconnection.close();
+                }
+            }
+            catch(Exception e)
+            {
+                JOptionPane.showMessageDialog(rootPane, "Error in Connection due to " + e.getMessage());
+            }
+        }
+
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try
+        {
+            Connection myconnection = DriverManager.getConnection(PATH+PLACE, USERNAME,PASS);
+
+            try
+            {
+                String myquery="select * from ticket_booked where id=?";
+                PreparedStatement mystatement = myconnection.prepareStatement(myquery);
+                mystatement.setString(1, useridbox.getText());
+                ResultSet myresult=mystatement.executeQuery();
+
+                if(myresult.next())
+                {
+                    jButton2.setEnabled(true);
+                    moviebox.setText(myresult.getString("movie"));
+                    ticketbox.setText(myresult.getString("tickets"));
+                    datebox.setText(myresult.getString("bookdate"));
+                    timebox.setText(myresult.getString("showtime"));
+
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(rootPane,"Wrong User ID");
+                }
+            }
+            catch(Exception e)
+            {
+                JOptionPane.showMessageDialog(rootPane, "7 Error in Query due to " + e.getMessage());
+            }
+            finally
+            {
+                myconnection.close();
+            }
+        }
+        catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(rootPane, "Error in Connection due to " + e.getMessage());
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel city;
-    private javax.swing.JLabel citybox;
     private javax.swing.JLabel datebox;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel movie;
     private javax.swing.JLabel moviebox;
-    private javax.swing.JLabel theater;
-    private javax.swing.JLabel theaterbox;
     private javax.swing.JLabel ticketbox;
     private javax.swing.JLabel tickets1;
     private javax.swing.JLabel tickets2;

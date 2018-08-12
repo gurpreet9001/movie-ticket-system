@@ -8,12 +8,12 @@ import java.sql.*;
 import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 
-public class TEMP extends javax.swing.JInternalFrame implements myvariables {
+public class add_hall extends javax.swing.JInternalFrame implements myvariables {
 
     /**
      * Creates new form TEMP
      */
-    public TEMP() {
+    public add_hall() {
         initComponents();
     }
 
@@ -29,13 +29,19 @@ public class TEMP extends javax.swing.JInternalFrame implements myvariables {
         jPanel1 = new javax.swing.JPanel();
         city = new javax.swing.JLabel();
         Movies = new javax.swing.JButton();
-        AUDIBOX = new javax.swing.JTextField();
+        audibox = new javax.swing.JTextField();
         name1 = new javax.swing.JLabel();
-        seatbox = new javax.swing.JTextField();
+        silverbox = new javax.swing.JTextField();
         name2 = new javax.swing.JLabel();
         name3 = new javax.swing.JLabel();
-        seatbox1 = new javax.swing.JTextField();
-        seatbox2 = new javax.swing.JTextField();
+        goldbox = new javax.swing.JTextField();
+        platinumbox = new javax.swing.JTextField();
+
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
+        setTitle("Add New Auditorium");
 
         jPanel1.setName("Book Movie Tickets"); // NOI18N
 
@@ -51,9 +57,9 @@ public class TEMP extends javax.swing.JInternalFrame implements myvariables {
 
         name1.setText("Seats (SILVER)");
 
-        seatbox.addActionListener(new java.awt.event.ActionListener() {
+        silverbox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seatboxActionPerformed(evt);
+                silverboxActionPerformed(evt);
             }
         });
 
@@ -61,15 +67,15 @@ public class TEMP extends javax.swing.JInternalFrame implements myvariables {
 
         name3.setText("Seats (GOLD)");
 
-        seatbox1.addActionListener(new java.awt.event.ActionListener() {
+        goldbox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seatbox1ActionPerformed(evt);
+                goldboxActionPerformed(evt);
             }
         });
 
-        seatbox2.addActionListener(new java.awt.event.ActionListener() {
+        platinumbox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seatbox2ActionPerformed(evt);
+                platinumboxActionPerformed(evt);
             }
         });
 
@@ -86,15 +92,15 @@ public class TEMP extends javax.swing.JInternalFrame implements myvariables {
                     .addComponent(name3, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(AUDIBOX, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(seatbox, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(seatbox2, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(seatbox1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(audibox, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(silverbox, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(platinumbox, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(goldbox, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 87, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(175, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(Movies)
-                .addGap(249, 249, 249))
+                .addGap(205, 205, 205))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -102,29 +108,32 @@ public class TEMP extends javax.swing.JInternalFrame implements myvariables {
                 .addGap(116, 116, 116)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(city, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(AUDIBOX, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(audibox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(name1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(seatbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(silverbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(16, 16, 16)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(name3, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(seatbox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(goldbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(name2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(seatbox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+                    .addComponent(platinumbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
                 .addComponent(Movies)
-                .addGap(49, 49, 49))
+                .addGap(60, 60, 60))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(25, 25, 25))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -143,18 +152,20 @@ public class TEMP extends javax.swing.JInternalFrame implements myvariables {
 
             try
             {
-                String a="insert into theaterlist values(?,?,?)";
+                String a="insert into hall_list values(?,?,?,?)";
                 PreparedStatement mystatement=myconnection.prepareStatement(a);
-//                mystatement.setString(1, theaterbox.getText());
-                mystatement.setString(2, AUDIBOX.getText());
-                mystatement.setString(3, seatbox.getText());
-
+                mystatement.setString(1, audibox.getText());
+                mystatement.setString(2, silverbox.getText());
+                mystatement.setString(3, goldbox.getText());
+                mystatement.setString(4, platinumbox.getText());
+                
                 if(mystatement.executeUpdate()>0)
                 {
                     JOptionPane.showMessageDialog(rootPane, "Saved Successfully");
-//                    theaterbox.setText("");
-                    AUDIBOX.setText("");
-                    seatbox.setText("");
+                    goldbox.setText("");
+                    audibox.setText("");
+                    silverbox.setText("");
+                    platinumbox.setText("");
                 }
 
             }
@@ -173,29 +184,29 @@ public class TEMP extends javax.swing.JInternalFrame implements myvariables {
         }
     }//GEN-LAST:event_MoviesActionPerformed
 
-    private void seatboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatboxActionPerformed
+    private void silverboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_silverboxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_seatboxActionPerformed
+    }//GEN-LAST:event_silverboxActionPerformed
 
-    private void seatbox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatbox1ActionPerformed
+    private void goldboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_goldboxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_seatbox1ActionPerformed
+    }//GEN-LAST:event_goldboxActionPerformed
 
-    private void seatbox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatbox2ActionPerformed
+    private void platinumboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_platinumboxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_seatbox2ActionPerformed
+    }//GEN-LAST:event_platinumboxActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField AUDIBOX;
     private javax.swing.JButton Movies;
+    private javax.swing.JTextField audibox;
     private javax.swing.JLabel city;
+    private javax.swing.JTextField goldbox;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel name1;
     private javax.swing.JLabel name2;
     private javax.swing.JLabel name3;
-    private javax.swing.JTextField seatbox;
-    private javax.swing.JTextField seatbox1;
-    private javax.swing.JTextField seatbox2;
+    private javax.swing.JTextField platinumbox;
+    private javax.swing.JTextField silverbox;
     // End of variables declaration//GEN-END:variables
 }

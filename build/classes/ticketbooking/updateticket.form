@@ -29,24 +29,24 @@
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                      <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="174" max="-2" attributes="0"/>
                       <Component id="update" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                      <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace pref="23" max="32767" attributes="0"/>
+              <EmptySpace pref="29" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
               <Component id="jPanel1" max="32767" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="update" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
           </Group>
@@ -63,43 +63,36 @@
                   <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="tickets2" min="-2" max="-2" attributes="0"/>
-                              <Component id="tickets3" min="-2" max="-2" attributes="0"/>
-                              <Component id="date" min="-2" max="-2" attributes="0"/>
-                              <Component id="userID1" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="tickets1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="userID3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="userID5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="theaterlabel" min="-2" pref="92" max="-2" attributes="0"/>
-                                      <Component id="movielabel" min="-2" pref="92" max="-2" attributes="0"/>
-                                      <Component id="ticketbox" min="-2" pref="117" max="-2" attributes="0"/>
-                                      <Component id="citylabel" alignment="0" min="-2" pref="92" max="-2" attributes="0"/>
-                                      <Component id="datebox" alignment="0" min="-2" pref="117" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                          </Group>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
                               <Group type="102" attributes="0">
                                   <Component id="userID" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
                                   <Component id="useridbox" min="-2" pref="117" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                  <Component id="timelabel" min="-2" pref="93" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Component id="tickets2" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
                                   <Component id="datelabel" min="-2" pref="117" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace pref="25" max="32767" attributes="0"/>
                           <Component id="search" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="tickets1" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="date" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="tickets3" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="userID3" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="movielabel" min="-2" pref="92" max="-2" attributes="0"/>
+                              <Component id="datebox" min="-2" pref="92" max="-2" attributes="0"/>
+                              <Component id="ticketbox" min="-2" pref="117" max="-2" attributes="0"/>
+                              <Component id="timelabel" alignment="0" min="-2" pref="93" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -115,42 +108,32 @@
                       <Component id="useridbox" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="search" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="tickets2" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="datelabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                  <EmptySpace pref="40" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="tickets3" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="timelabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="36" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="userID1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="citylabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="userID5" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="theaterlabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="userID3" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="movielabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="ticketbox" min="-2" max="-2" attributes="0"/>
+                      <Component id="tickets1" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="tickets1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="ticketbox" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="date" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="datebox" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="datebox" min="-2" max="-2" attributes="0"/>
-                      <Component id="date" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -175,13 +158,6 @@
             <Property name="text" type="java.lang.String" value="Updated Date"/>
           </Properties>
         </Component>
-        <Component class="com.toedter.calendar.JDateChooser" name="datebox">
-        </Component>
-        <Component class="javax.swing.JLabel" name="userID1">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="City"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JLabel" name="movielabel">
           <Properties>
             <Property name="text" type="java.lang.String" value="..."/>
@@ -190,21 +166,6 @@
         <Component class="javax.swing.JLabel" name="userID3">
           <Properties>
             <Property name="text" type="java.lang.String" value="Movie"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="citylabel">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="..."/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="userID5">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Theater"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="theaterlabel">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="..."/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="search">
@@ -236,6 +197,11 @@
         <Component class="javax.swing.JLabel" name="tickets3">
           <Properties>
             <Property name="text" type="java.lang.String" value="Time"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="datebox">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="..."/>
           </Properties>
         </Component>
       </SubComponents>

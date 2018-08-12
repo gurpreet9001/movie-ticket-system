@@ -46,21 +46,21 @@
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="168" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="theater" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="movie" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="Price" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="Price1" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="Price2" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="movie1" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="134" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="theaterbox" alignment="0" max="32767" attributes="0"/>
-                              <Component id="moviebox" alignment="0" max="32767" attributes="0"/>
-                              <Component id="citybox" alignment="0" max="32767" attributes="0"/>
+                              <Component id="lengthbox" alignment="0" max="32767" attributes="0"/>
+                              <Component id="audibox" alignment="0" max="32767" attributes="0"/>
                               <Component id="pricebox" alignment="0" max="32767" attributes="0"/>
-                              <Component id="timebox" alignment="0" max="32767" attributes="0"/>
                               <Component id="datebox" min="-2" pref="119" max="-2" attributes="0"/>
+                              <Component id="timingbox" max="32767" attributes="0"/>
+                              <Component id="moviebox" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -68,7 +68,7 @@
                           <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="188" max="32767" attributes="0"/>
+                  <EmptySpace pref="183" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -78,19 +78,19 @@
                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="citybox" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="audibox" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="theater" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="theaterbox" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="movie" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="moviebox" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="lengthbox" min="-2" max="-2" attributes="0"/>
+                      <Component id="movie1" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="Price" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="pricebox" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -103,9 +103,9 @@
                   <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="Price2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="timebox" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="timingbox" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="44" max="32767" attributes="0"/>
+                  <EmptySpace pref="48" max="32767" attributes="0"/>
                   <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
               </Group>
@@ -113,30 +113,10 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="theater">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Theater"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JLabel" name="movie">
           <Properties>
             <Property name="text" type="java.lang.String" value="Movie Name"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JComboBox" name="theaterbox">
-          <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="1">
-                <StringItem index="0" value="Choose theater"/>
-              </StringArray>
-            </Property>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="theaterboxActionPerformed"/>
-          </Events>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="jButton1">
           <Properties>
@@ -149,17 +129,17 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="moviebox">
+        <Component class="javax.swing.JTextField" name="lengthbox">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="movieboxActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="lengthboxActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel6">
           <Properties>
-            <Property name="text" type="java.lang.String" value="City"/>
+            <Property name="text" type="java.lang.String" value="Audi"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="citybox">
+        <Component class="javax.swing.JComboBox" name="audibox">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="1">
@@ -168,7 +148,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cityboxActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="audiboxActionPerformed"/>
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -189,17 +169,43 @@
             <Property name="text" type="java.lang.String" value="Date"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="timebox">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="timeboxActionPerformed"/>
-          </Events>
-        </Component>
         <Component class="javax.swing.JLabel" name="Price2">
           <Properties>
             <Property name="text" type="java.lang.String" value="Show Timing"/>
           </Properties>
         </Component>
         <Component class="com.toedter.calendar.JDateChooser" name="datebox">
+        </Component>
+        <Component class="javax.swing.JComboBox" name="timingbox">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="7">
+                <StringItem index="0" value="Choose Timing&#x9;"/>
+                <StringItem index="1" value="6 AM"/>
+                <StringItem index="2" value="9 AM"/>
+                <StringItem index="3" value="1 PM"/>
+                <StringItem index="4" value="4 PM"/>
+                <StringItem index="5" value="7 PM"/>
+                <StringItem index="6" value="11 PM"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="timingboxActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JLabel" name="movie1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Movie Length"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="moviebox">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="movieboxActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

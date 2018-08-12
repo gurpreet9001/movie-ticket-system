@@ -40,19 +40,19 @@ public class bookticket extends javax.swing.JInternalFrame implements myvariable
  
  try
  {
-    String myquery="select distinct city from theaterlist";
+    String myquery="select audi from hall_list";
     PreparedStatement mystatement=myconnection.prepareStatement(myquery);
     ResultSet myresult=mystatement.executeQuery();
     
     if(myresult.next()){
     do{
-    citybox.addItem(myresult.getString("City"));
+    audibox.addItem(myresult.getString("audi"));
     }while(myresult.next());
     }
             
             
    
-    citybox.setSelectedIndex(0);
+    audibox.setSelectedIndex(0);
    
  
  }
@@ -83,10 +83,8 @@ public class bookticket extends javax.swing.JInternalFrame implements myvariable
 
         jPanel1 = new javax.swing.JPanel();
         city = new javax.swing.JLabel();
-        theater = new javax.swing.JLabel();
         movie = new javax.swing.JLabel();
-        citybox = new javax.swing.JComboBox<>();
-        theaterbox = new javax.swing.JComboBox<>();
+        audibox = new javax.swing.JComboBox<>();
         moviebox = new javax.swing.JComboBox<>();
         userID = new javax.swing.JLabel();
         useridbox = new javax.swing.JTextField();
@@ -102,8 +100,19 @@ public class bookticket extends javax.swing.JInternalFrame implements myvariable
         date2 = new javax.swing.JLabel();
         timebox = new javax.swing.JLabel();
         showdatebox = new javax.swing.JLabel();
+        movie1 = new javax.swing.JLabel();
+        luxurybox = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        city1 = new javax.swing.JLabel();
+        city4 = new javax.swing.JLabel();
+        city2 = new javax.swing.JLabel();
+        city3 = new javax.swing.JLabel();
+        city5 = new javax.swing.JLabel();
+        goldbox = new javax.swing.JLabel();
+        platinumbox = new javax.swing.JLabel();
+        silverbox = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -111,23 +120,14 @@ public class bookticket extends javax.swing.JInternalFrame implements myvariable
         setResizable(true);
         setTitle("Book Ticket");
 
-        city.setText("City");
-
-        theater.setText("Theater");
+        city.setText("Audi");
 
         movie.setText("Movie");
 
-        citybox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choose city" }));
-        citybox.addActionListener(new java.awt.event.ActionListener() {
+        audibox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choose Audi" }));
+        audibox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cityboxActionPerformed(evt);
-            }
-        });
-
-        theaterbox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choose theater" }));
-        theaterbox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                theaterboxActionPerformed(evt);
+                audiboxActionPerformed(evt);
             }
         });
 
@@ -139,6 +139,12 @@ public class bookticket extends javax.swing.JInternalFrame implements myvariable
         });
 
         userID.setText("Unique UserID");
+
+        useridbox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                useridboxActionPerformed(evt);
+            }
+        });
 
         tickets1.setText("No. of Tickets");
 
@@ -173,97 +179,99 @@ public class bookticket extends javax.swing.JInternalFrame implements myvariable
 
         showdatebox.setText("...");
 
+        movie1.setText("Luxury");
+
+        luxurybox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SILVER", "GOLD", "PLATINUM" }));
+        luxurybox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                luxuryboxActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(city)
                             .addComponent(movie)
-                            .addComponent(theater)
-                            .addComponent(userID)
                             .addComponent(tickets1)
-                            .addComponent(price)
                             .addComponent(date)
-                            .addComponent(total))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 131, Short.MAX_VALUE)
+                            .addComponent(total)
+                            .addComponent(movie1)
+                            .addComponent(date1)
+                            .addComponent(date2)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(theaterbox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(moviebox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(citybox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(useridbox)
-                                .addComponent(totalbox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(ticketbox, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(datebox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(pricebox, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(31, 31, 31))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(date2)
-                            .addComponent(date1))
-                        .addGap(137, 137, 137)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(timebox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(showdatebox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addContainerGap())))
+                            .addComponent(price)
+                            .addComponent(userID))))
+                .addGap(134, 134, 134)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(timebox, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(moviebox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(audibox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(useridbox)
+                        .addComponent(totalbox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ticketbox, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
+                        .addComponent(datebox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(pricebox, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
+                        .addComponent(luxurybox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(showdatebox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(audibox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(city)
+                        .addGap(26, 26, 26)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(movie)
+                            .addComponent(moviebox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(movie1)
+                    .addComponent(luxurybox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(price)
+                    .addComponent(pricebox, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(useridbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(userID))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(price)
-                        .addGap(30, 30, 30)
-                        .addComponent(userID)
-                        .addGap(25, 25, 25)
-                        .addComponent(tickets1)
-                        .addGap(28, 28, 28)
-                        .addComponent(total)
+                        .addGap(37, 37, 37)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(ticketbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tickets1)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(87, 87, 87)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(total)
+                            .addComponent(totalbox))
                         .addGap(29, 29, 29)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(date)
-                            .addComponent(datebox))
-                        .addGap(28, 28, 28))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                    .addGap(162, 162, 162)
-                                    .addComponent(useridbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(129, 129, 129))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(citybox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(theaterbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(theater))
-                                    .addGap(18, 18, 18)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(moviebox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(movie))
-                                    .addGap(18, 18, 18)
-                                    .addComponent(pricebox, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(69, 69, 69)
-                                    .addComponent(ticketbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(25, 25, 25)
-                                    .addComponent(totalbox)))
-                            .addComponent(city))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)))
+                            .addComponent(datebox))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(date1)
                     .addComponent(timebox))
-                .addGap(26, 26, 26)
+                .addGap(29, 29, 29)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(showdatebox)
-                    .addComponent(date2))
-                .addGap(23, 23, 23))
+                    .addComponent(date2)
+                    .addComponent(showdatebox)))
         );
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ticketbooking/ticket (1).png"))); // NOI18N
@@ -281,6 +289,27 @@ public class bookticket extends javax.swing.JInternalFrame implements myvariable
             }
         });
 
+        city1.setText("Remaining Tickets :-");
+
+        city4.setText("Silver");
+
+        city2.setText("Gold");
+
+        city3.setText("Platinum");
+
+        goldbox.setText("...");
+
+        platinumbox.setText("...");
+
+        silverbox.setText("...");
+
+        jButton4.setText("Remaining Tickets");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -288,45 +317,85 @@ public class bookticket extends javax.swing.JInternalFrame implements myvariable
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(200, 200, 200)
+                        .addComponent(jButton1))
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(19, 19, 19)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(211, 211, 211)
-                        .addComponent(jButton1)))
-                .addContainerGap(14, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(32, 32, 32)
+                                .addComponent(jButton3))
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton4)
+                                .addGap(26, 26, 26)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(city2)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(goldbox))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(city4)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(city5)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(silverbox))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(city3)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                                        .addComponent(platinumbox)))))))
+                .addContainerGap(84, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(city1)
+                .addGap(128, 128, 128))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(city1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(29, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18))
+                        .addGap(30, 30, 30)
+                        .addComponent(jButton1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(242, 242, 242)
-                        .addComponent(jButton3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addComponent(jButton1)
-                .addGap(23, 23, 23))
+                        .addComponent(city5)
+                        .addGap(22, 22, 22)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(city4)
+                            .addComponent(silverbox))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(city2)
+                            .addComponent(goldbox)
+                            .addComponent(jButton4))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(city3)
+                            .addComponent(platinumbox))
+                        .addGap(131, 131, 131)
+                        .addComponent(jButton3)))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void theaterboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_theaterboxActionPerformed
-                     try
+    private void audiboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_audiboxActionPerformed
+                      try
  {
  Connection myconnection;
  myconnection=DriverManager.getConnection(PATH+PLACE, USERNAME, PASS);
  
  try
  {
-    String myquery="select movie from movies where theatername=?";
+    String myquery="select moviename from movies where audi=?";
     PreparedStatement mystatement=myconnection.prepareStatement(myquery);
-    mystatement.setString(1,theaterbox.getSelectedItem().toString());
+    mystatement.setString(1,audibox.getSelectedItem().toString());
     ResultSet myresult=mystatement.executeQuery();
     
     
@@ -335,61 +404,14 @@ public class bookticket extends javax.swing.JInternalFrame implements myvariable
     
     if(myresult.next()){
         moviebox.removeAllItems();
-        moviebox.addItem("Choose movies now");
+        moviebox.addItem("Choose movie now");
     do{
-    moviebox.addItem(myresult.getString("movie"));
+    moviebox.addItem(myresult.getString("moviename"));
     }while(myresult.next());
     
     }
            
     moviebox.setSelectedIndex(0);
-    
- 
- }
- catch(Exception e)
- {
-    //JOptionPane.showMessageDialog(rootPane, "Error in Query 2 " + e.getMessage());
- }
- finally
- {
-    myconnection.close();
- }
- }
- catch(Exception e)
- {
- JOptionPane.showMessageDialog(rootPane, "Error in Connection " + e.getMessage());
- }
-    }//GEN-LAST:event_theaterboxActionPerformed
-
-    private void cityboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cityboxActionPerformed
-                      try
- {
- Connection myconnection;
- myconnection=DriverManager.getConnection(PATH+PLACE, USERNAME, PASS);
- 
- try
- {
-    String myquery="select distinct(theatername) from movies where city=?";
-    PreparedStatement mystatement=myconnection.prepareStatement(myquery);
-    mystatement.setString(1,citybox.getSelectedItem().toString());
-    ResultSet myresult=mystatement.executeQuery();
-    
-    
-    
-    
-    
-    if(myresult.next()){
-        theaterbox.removeAllItems();
-        theaterbox.addItem("Choose theater now");
-    do{
-    theaterbox.addItem(myresult.getString("theatername"));
-    }while(myresult.next());
-    
-    }
-           
-    theaterbox.setSelectedIndex(0);
-    
- 
  }
  catch(Exception e)
  {
@@ -404,7 +426,7 @@ public class bookticket extends javax.swing.JInternalFrame implements myvariable
  {
  JOptionPane.showMessageDialog(rootPane, "Error in Connection " + e.getMessage());
  }
-    }//GEN-LAST:event_cityboxActionPerformed
+    }//GEN-LAST:event_audiboxActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
   try
@@ -417,21 +439,125 @@ public class bookticket extends javax.swing.JInternalFrame implements myvariable
             {
                 String a="insert into ticket_booked values(?,?,?,?,?,?,?,?,?,?)";
                 PreparedStatement mystatement=myconnection.prepareStatement(a);
-                mystatement.setString(2, theaterbox.getSelectedItem().toString());
-                mystatement.setString(1, citybox.getSelectedItem().toString());
-                mystatement.setString(3, moviebox.getSelectedItem().toString());
-                mystatement.setString(4, useridbox.getText());
-                mystatement.setString(5, ticketbox.getText());
-                mystatement.setString(6, datebox.getText());
-                mystatement.setString(7, pricebox.getText());
-                mystatement.setString(8, totalbox.getText());
-                mystatement.setString(9, showdatebox.getText());
-                mystatement.setString(10, timebox.getText());
+                mystatement.setString(3, luxurybox.getSelectedItem().toString());
+                mystatement.setString(1, audibox.getSelectedItem().toString());
+                mystatement.setString(2, moviebox.getSelectedItem().toString());
+                mystatement.setString(5, useridbox.getText());
+                mystatement.setString(6, ticketbox.getText());
+                mystatement.setString(8, datebox.getText());
+                mystatement.setString(4, pricebox.getText());
+                mystatement.setString(7, totalbox.getText());
+                mystatement.setString(10, showdatebox.getText());
+                mystatement.setString(9, timebox.getText());
                 
                 
                 if(mystatement.executeUpdate()>0)
                 {
-                      
+                      if(luxurybox.getSelectedItem().toString()=="SILVER"){try
+ {
+ Connection myconnection1 = DriverManager.getConnection(PATH+PLACE, USERNAME,PASS); 
+ 
+ try
+ { String myquery1="update hall_list set silver=silver-?"
+ + " where audi=?";
+ PreparedStatement mystatement1 = myconnection1.prepareStatement(myquery1);
+ 
+ mystatement1.setString(1, ticketbox.getText());
+  mystatement1.setString(2, audibox.getSelectedItem().toString());
+  
+ 
+ if(mystatement1.executeUpdate()>0)
+ {
+ //JOptionPane.showMessageDialog(rootPane,"Updated Successfully");
+ }
+ else
+ {
+ JOptionPane.showMessageDialog(rootPane,"Sorry, some problem occured");
+ }
+ }
+ catch(Exception e)
+ {
+ JOptionPane.showMessageDialog(rootPane, "1 Error in Query due to " + e.getMessage());
+ }
+ finally
+ {
+ myconnection1.close();
+ }
+ }
+ catch(Exception e)
+ {
+ JOptionPane.showMessageDialog(rootPane, "Error in Connection due to " + e.getMessage());
+ }}
+                      if(luxurybox.getSelectedItem().toString()=="GOLD"){try
+ {
+ Connection myconnection1 = DriverManager.getConnection(PATH+PLACE, USERNAME,PASS); 
+ 
+ try
+ {
+  String myquery1="update hall_list set gold=gold-?"
+ + " where audi=?";
+ PreparedStatement mystatement1 = myconnection1.prepareStatement(myquery1);
+ 
+ mystatement1.setString(1, ticketbox.getText());
+  mystatement1.setString(2, audibox.getSelectedItem().toString());
+  
+ if(mystatement1.executeUpdate()>0)
+ {
+ JOptionPane.showMessageDialog(rootPane,"Updated Successfully");
+ }
+ else
+ {
+ JOptionPane.showMessageDialog(rootPane,"Sorry, some problem occured");
+ }
+ }
+ catch(Exception e)
+ {
+ JOptionPane.showMessageDialog(rootPane, "1 Error in Query due to " + e.getMessage());
+ }
+ finally
+ {
+ myconnection1.close();
+ }
+ }
+ catch(Exception e)
+ {
+ JOptionPane.showMessageDialog(rootPane, "Error in Connection due to " + e.getMessage());
+ }}
+                      else if(luxurybox.getSelectedItem().toString()=="PLATINUM"){try
+ {
+ Connection myconnection1 = DriverManager.getConnection(PATH+PLACE, USERNAME,PASS); 
+ 
+ try
+ {
+ String myquery1="update hall_list set platinum=platinum-?"
+ + " where audi=?";
+ PreparedStatement mystatement1 = myconnection1.prepareStatement(myquery1);
+ 
+ mystatement1.setString(1, ticketbox.getText());
+  mystatement1.setString(2, audibox.getSelectedItem().toString());
+  
+ if(mystatement1.executeUpdate()>0)
+ {
+ JOptionPane.showMessageDialog(rootPane,"Updated Successfully");
+ }
+ else
+ {
+ JOptionPane.showMessageDialog(rootPane,"Sorry, some problem occured");
+ }
+ }
+ catch(Exception e)
+ {
+ JOptionPane.showMessageDialog(rootPane, "1 Error in Query due to " + e.getMessage());
+ }
+ finally
+ {
+ myconnection1.close();
+ }
+ }
+ catch(Exception e)
+ {
+ JOptionPane.showMessageDialog(rootPane, "Error in Connection due to " + e.getMessage());
+ }}
                     print_ticket.userid=useridbox.getText();
                     print_ticket obj=new print_ticket();
                     parent.jDesktopPane1.add(obj);
@@ -439,8 +565,8 @@ public class bookticket extends javax.swing.JInternalFrame implements myvariable
     
                     useridbox.setText("");
                     moviebox.setSelectedIndex(0);
-                    theaterbox.setSelectedIndex(0);
-                    citybox.setSelectedIndex(0);
+                    luxurybox.setSelectedIndex(0);
+                    audibox.setSelectedIndex(0);
                     moviebox.setSelectedIndex(0);
                     pricebox.setText("");
                     totalbox.setText("");
@@ -461,7 +587,9 @@ public class bookticket extends javax.swing.JInternalFrame implements myvariable
         catch(Exception e)
         {
             JOptionPane.showMessageDialog(rootPane, "Error in Connection " + e.getMessage());
-        }  
+        } 
+  
+   
  
    
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -474,7 +602,7 @@ public class bookticket extends javax.swing.JInternalFrame implements myvariable
  
  try
  {
-    String myquery="select * from movies where movie=?";
+    String myquery="select * from movies where moviename=?";
     PreparedStatement mystatement=myconnection.prepareStatement(myquery);
     mystatement.setString(1,moviebox.getSelectedItem().toString());
     ResultSet myresult=mystatement.executeQuery();
@@ -485,8 +613,9 @@ public class bookticket extends javax.swing.JInternalFrame implements myvariable
     
     if(myresult.next()){
        pricebox.setText(myresult.getString("price"));
-       timebox.setText(myresult.getString("time"));
+       timebox.setText(myresult.getString("Show_Timing"));
        showdatebox.setText(myresult.getString("Date"));
+       //useridbox.setText("moviename"+String.valueOf(ticketleft));
     }
        
  
@@ -529,7 +658,7 @@ public class bookticket extends javax.swing.JInternalFrame implements myvariable
 
                 if(myresult.next()){
 
-                    String myprice=myresult.getString("price");
+                    String myprice=(String) pricebox.getText();
                     String myticket=(String) ticketbox.getText();
                     int mytotal=Integer.parseInt(myprice)*Integer.parseInt(myticket);
                     totalbox.setText(String.valueOf(mytotal));
@@ -557,24 +686,87 @@ public class bookticket extends javax.swing.JInternalFrame implements myvariable
 
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void useridboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_useridboxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_useridboxActionPerformed
+
+    private void luxuryboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_luxuryboxActionPerformed
+
+        if(luxurybox.getSelectedItem()=="GOLD")
+       pricebox.setText(String.valueOf(Integer.parseInt(pricebox.getText()) + 40));
+       else if(luxurybox.getSelectedItem()=="PLATINUM")
+        pricebox.setText(String.valueOf(Integer.parseInt(pricebox.getText()) + 70));
+   
+    }//GEN-LAST:event_luxuryboxActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+                    try
+ {
+ Connection myconnection;
+ myconnection=DriverManager.getConnection(PATH+PLACE, USERNAME, PASS);
+ 
+ try
+ {
+    String myquery="select * from hall_list where audi=?";
+    PreparedStatement mystatement=myconnection.prepareStatement(myquery);
+    mystatement.setString(1,audibox.getSelectedItem().toString());
+    ResultSet myresult=mystatement.executeQuery();
+    
+    
+    
+    
+    
+    if(myresult.next()){
+       goldbox.setText(myresult.getString("gold"));
+       silverbox.setText(myresult.getString("silver"));
+       platinumbox.setText(myresult.getString("platinum"));
+       //useridbox.setText("moviename"+String.valueOf(ticketleft));
+    }
+       
+ 
+ }
+ catch(Exception e)
+ {
+    //JOptionPane.showMessageDialog(rootPane, "Error in Query 2 " + e.getMessage());
+ }
+ finally
+ {
+    myconnection.close();
+ }
+ }
+ catch(Exception e)
+ {
+ JOptionPane.showMessageDialog(rootPane, "Error in Connection " + e.getMessage());
+ }         
+    }//GEN-LAST:event_jButton4ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> audibox;
     private javax.swing.JLabel city;
-    private javax.swing.JComboBox<String> citybox;
+    private javax.swing.JLabel city1;
+    private javax.swing.JLabel city2;
+    private javax.swing.JLabel city3;
+    private javax.swing.JLabel city4;
+    private javax.swing.JLabel city5;
     private javax.swing.JLabel date;
     private javax.swing.JLabel date1;
     private javax.swing.JLabel date2;
     private javax.swing.JLabel datebox;
+    private javax.swing.JLabel goldbox;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JComboBox<String> luxurybox;
     private javax.swing.JLabel movie;
+    private javax.swing.JLabel movie1;
     private javax.swing.JComboBox<String> moviebox;
+    private javax.swing.JLabel platinumbox;
     private javax.swing.JLabel price;
     private javax.swing.JLabel pricebox;
     private javax.swing.JLabel showdatebox;
-    private javax.swing.JLabel theater;
-    private javax.swing.JComboBox<String> theaterbox;
+    private javax.swing.JLabel silverbox;
     private javax.swing.JTextField ticketbox;
     private javax.swing.JLabel tickets1;
     private javax.swing.JLabel timebox;
