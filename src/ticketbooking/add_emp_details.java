@@ -22,12 +22,12 @@ import static ticketbooking.parent.jDesktopPane1;
  *
  * @author gurpreet9001
  */
-public class child extends javax.swing.JInternalFrame implements myvariables {
+public class add_emp_details extends javax.swing.JInternalFrame implements myvariables {
 
    File myfile;
 String oldfilename;
     
-    public child() {
+    public add_emp_details() {
         initComponents();
         
 //        java.util.Date obj=new java.util.Date();
@@ -221,7 +221,7 @@ FileOutputStream outs = null;
 try {
 
 rd = new FileInputStream(myfile);
-outs = new FileOutputStream("empimages\\"+filename);//writing the new file in 'Images' folder, in the project
+outs = new FileOutputStream(filename);//writing the new file in 'Images' folder, in the project
 
 byte[] b = new byte[2048];
 while ((i = rd.read(b)) !=-1) {
@@ -258,7 +258,7 @@ try
 {
 if((malebox.isSelected() || femalebox.isSelected()) )
 {
-String q="insert into part1 values(?,?,?,?,?,?)";
+String q="insert into details values(?,?,?,?,?,?)";
 PreparedStatement mystatement=myconnection.prepareStatement(q);
 mystatement.setString(1, usernamebox.getText());
 mystatement.setString(2, agebox.getText());
@@ -285,6 +285,11 @@ emailbox.setText("");
 phonebox.setText("");
 jLabel7.setText("");
 
+register_employee obj=new register_employee();
+        jDesktopPane1.add(obj);
+        obj.show();
+
+        this.dispose();
 }
 }
 else
@@ -313,10 +318,7 @@ else
 JOptionPane.showMessageDialog(rootPane, "Upload pic smaller than 300kb");
 }
 
-        register_employee obj=new register_employee();
-        jDesktopPane1.add(obj);
-        obj.show();
-
+        
 
 
     }//GEN-LAST:event_MoviesActionPerformed

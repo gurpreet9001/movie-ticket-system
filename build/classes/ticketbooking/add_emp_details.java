@@ -10,7 +10,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.sql.*;
-import java.text.SimpleDateFormat;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -23,12 +22,12 @@ import static ticketbooking.parent.jDesktopPane1;
  *
  * @author gurpreet9001
  */
-public class update_delete_emp extends javax.swing.JInternalFrame implements myvariables {
+public class add_emp_details extends javax.swing.JInternalFrame implements myvariables {
 
    File myfile;
 String oldfilename;
     
-    public update_delete_emp() {
+    public add_emp_details() {
         initComponents();
         
 //        java.util.Date obj=new java.util.Date();
@@ -68,14 +67,12 @@ String oldfilename;
         jLabel7 = new javax.swing.JLabel();
         upload = new javax.swing.JButton();
         phonebox = new javax.swing.JFormattedTextField();
-        Movies1 = new javax.swing.JButton();
-        upload1 = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
-        setTitle("Update/Delete Employee");
+        setTitle("Add Employee");
         setName("New"); // NOI18N
         setVisible(true);
 
@@ -89,7 +86,7 @@ String oldfilename;
 
         phone.setText("Phone no.");
 
-        Movies.setText("Delete");
+        Movies.setText("Add Employee");
         Movies.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MoviesActionPerformed(evt);
@@ -106,7 +103,7 @@ String oldfilename;
 
         jLabel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        upload.setText("Update");
+        upload.setText("Upload Image");
         upload.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 uploadActionPerformed(evt);
@@ -119,20 +116,6 @@ String oldfilename;
             ex.printStackTrace();
         }
 
-        Movies1.setText("Search");
-        Movies1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Movies1ActionPerformed(evt);
-            }
-        });
-
-        upload1.setText("Upload Image");
-        upload1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                upload1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -141,54 +124,45 @@ String oldfilename;
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(upload, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Movies, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(Movies))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addGap(60, 60, 60)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(gender, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(name, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(age, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(email, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(phone, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(63, 63, 63)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(usernamebox)
+                            .addComponent(agebox)
+                            .addComponent(emailbox)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(63, 63, 63)
-                                .addComponent(usernamebox))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(gender, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(age, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(email, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(phone, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(63, 63, 63)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(agebox)
-                                    .addComponent(emailbox)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(malebox)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(femalebox)
-                                        .addGap(0, 60, Short.MAX_VALUE))
-                                    .addComponent(phonebox))))))
+                                .addComponent(malebox)
+                                .addGap(18, 18, 18)
+                                .addComponent(femalebox)
+                                .addGap(0, 60, Short.MAX_VALUE))
+                            .addComponent(phonebox))))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(Movies1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(34, 34, 34)
+                        .addGap(103, 103, 103)
                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18))
+                        .addGap(34, 34, 34))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(upload1)
-                        .addGap(41, 41, 41))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(upload)
+                        .addGap(58, 58, 58))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(65, 65, 65)
+                        .addGap(67, 67, 67)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(phone, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(phonebox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Movies1))
+                            .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(usernamebox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(30, 30, 30)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(agebox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -197,25 +171,23 @@ String oldfilename;
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(emailbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(31, 31, 31)
+                        .addGap(30, 30, 30)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(usernamebox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(31, 31, 31)
+                            .addComponent(phone, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(phonebox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(32, 32, 32)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(gender, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(malebox)
                             .addComponent(femalebox))
                         .addGap(96, 96, 96)
-                        .addComponent(Movies)
-                        .addGap(18, 18, 18)
-                        .addComponent(upload))
+                        .addComponent(Movies))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
+                        .addGap(37, 37, 37)
                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(upload1)))
-                .addContainerGap(31, Short.MAX_VALUE))
+                        .addGap(34, 34, 34)
+                        .addComponent(upload)))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -236,52 +208,9 @@ String oldfilename;
     }// </editor-fold>//GEN-END:initComponents
 
     private void MoviesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MoviesActionPerformed
-try
+ String filename="";
+if(myfile.length()<30000)
 {
-Connection myconnection;
-myconnection=DriverManager.getConnection(PATH+PLACE,USERNAME,PASS);
-try
-{
-
-String q="delete from details"
-+ " where phone_no=?";
-PreparedStatement mystatement=myconnection.prepareStatement(q);
-mystatement.setString(1, phonebox.getText());
-
-if(mystatement.executeUpdate()>0)
-{
-JOptionPane.showMessageDialog(rootPane, "Deleted successfully");
-usernamebox.setText("");
-agebox.setText("");
-emailbox.setText("");
-phonebox.setText("");
-jLabel7.setText("");
-
-}
-
-else
-{
-JOptionPane.showMessageDialog(rootPane, "Fill all values");
-}
-
-}
-catch(Exception e)
-{
-JOptionPane.showMessageDialog(rootPane, "Error in Query due to " + e.getMessage());
-}
-finally
-{
-myconnection.close();
-}
-
-}
-catch(Exception e)
-{
-JOptionPane.showMessageDialog(rootPane, "Error in Connection due to " + e.getMessage());
-}     }//GEN-LAST:event_MoviesActionPerformed
-
-    private void uploadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uploadActionPerformed
-String filename;
 if(myfile!=null)
 {
 filename = new java.util.Date().getTime() + myfile.getName();//Date.getTime() added for unique file name.
@@ -290,7 +219,6 @@ FileInputStream rd = null;
 FileOutputStream outs = null;
 
 try {
-
 
 rd = new FileInputStream(myfile);
 outs = new FileOutputStream(filename);//writing the new file in 'Images' folder, in the project
@@ -314,23 +242,12 @@ outs.close();
 JOptionPane.showMessageDialog(rootPane, "error in closing file" + e.getMessage());
 }
 }
-File oldimage=new File(oldfilename);
-if(!oldimage.getName().equals("default.png"))
-{
-oldimage.delete();
-}
-
-
-
-
 }
 else
 {
-filename=oldfilename;
+filename="default.png";
 
 }
-
-
 
 
 try
@@ -339,36 +256,42 @@ Connection myconnection;
 myconnection=DriverManager.getConnection(PATH+PLACE,USERNAME,PASS);
 try
 {
-
-String q="update details set name=?, gender=?,email=?,age=?,image=?"
-+ " where phone_no=?";
+if((malebox.isSelected() || femalebox.isSelected()) )
+{
+String q="insert into details values(?,?,?,?,?,?)";
 PreparedStatement mystatement=myconnection.prepareStatement(q);
 mystatement.setString(1, usernamebox.getText());
+mystatement.setString(2, agebox.getText());
+mystatement.setString(3, emailbox.getText());
+mystatement.setString(4, phonebox.getText());
 
 if(malebox.isSelected())
 {
-mystatement.setString(2, "Male");
+mystatement.setString(5, "Male");
 }
 else if(femalebox.isSelected())
 {
-mystatement.setString(2, "Female"); 
+mystatement.setString(5, "Female"); 
 }
-mystatement.setString(3, emailbox.getText());
-mystatement.setString(4, agebox.getText());
-mystatement.setString(5, filename);
-mystatement.setString(6, phonebox.getText());
 
+mystatement.setString(6, filename);
 if(mystatement.executeUpdate()>0)
 {
-JOptionPane.showMessageDialog(rootPane, "Data updated successfully");
+JOptionPane.showMessageDialog(rootPane, "Data saved successfully");
+
 usernamebox.setText("");
 agebox.setText("");
 emailbox.setText("");
 phonebox.setText("");
 jLabel7.setText("");
 
-}
+register_employee obj=new register_employee();
+        jDesktopPane1.add(obj);
+        obj.show();
 
+        this.dispose();
+}
+}
 else
 {
 JOptionPane.showMessageDialog(rootPane, "Fill all values");
@@ -388,109 +311,74 @@ myconnection.close();
 catch(Exception e)
 {
 JOptionPane.showMessageDialog(rootPane, "Error in Connection due to " + e.getMessage());
-} 
-    }//GEN-LAST:event_uploadActionPerformed
-
-    private void Movies1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Movies1ActionPerformed
-Connection myconnection;
-try
-{
-myconnection=DriverManager.getConnection(PATH+PLACE,USERNAME,PASS);
-try
-{
-String a="select * from details where phone_no=?";
-PreparedStatement mystatement=myconnection.prepareStatement(a); 
-mystatement.setString(1, phonebox.getText());
-
-ResultSet myresult=mystatement.executeQuery(); 
-if(myresult.next())
-{
-agebox.setText(myresult.getString("age"));
-emailbox.setText(myresult.getString("email"));
-usernamebox.setText(myresult.getString("name"));
-
-
-
-String myfile=myresult.getString("image");
-oldfilename=myfile;
-Image simg = ImageIO.read( new File(myfile)).getScaledInstance( jLabel7.getWidth(), jLabel7.getHeight(), Image.SCALE_DEFAULT);
-jLabel7.setIcon(new ImageIcon(simg));
+}
 }
 else
 {
-JOptionPane.showMessageDialog(rootPane, "Wrong phone number");
-}
-}
-catch(Exception e)
-{
-JOptionPane.showMessageDialog(rootPane, "Error in query " + e.getMessage());
-}
-finally
-{
-myconnection.close();
+JOptionPane.showMessageDialog(rootPane, "Upload pic smaller than 300kb");
 }
 
-}
-catch(Exception e)
-{
-JOptionPane.showMessageDialog(rootPane, "Error in Connection " + e.getMessage());
-} 
+        
 
-    }//GEN-LAST:event_Movies1ActionPerformed
 
-    private void upload1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upload1ActionPerformed
+    }//GEN-LAST:event_MoviesActionPerformed
+
+    private void uploadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uploadActionPerformed
         JFileChooser myfilechooser=new JFileChooser();
 
-        myfilechooser.setFileFilter(new FileFilter() {
-            @Override
-            public boolean accept(File f) {
-                if(f.isDirectory())
-                return true;
+myfilechooser.setFileFilter(new FileFilter() {
+@Override
+public boolean accept(File f) {
+if(f.isDirectory()) 
+return true;
 
-                String extension=f.getName().substring(f.getName().lastIndexOf(".")+1);
-                String allowed[]={"jpg","png","gif","jpeg","bmp"};
-                for(String a:allowed)
-                {
-                    if(a.equals(extension))
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                }
-                return false;
+String extension=f.getName().substring(f.getName().lastIndexOf(".")+1);
+String allowed[]={"jpg","png","gif","jpeg","bmp"};
+for(String a:allowed)
+{
+if(a.equals(extension))
+{
+return true;
+}
+else
+{
+return false;
+}
+}
+return false;
 
-            }
+}
 
-            @Override
-            public String getDescription() {
-                return "All Picture Files";
+@Override
+public String getDescription() {
+return "All Picture Files";
 
-            }
-        });
+}
+});
 
-        if(myfilechooser.showOpenDialog(rootPane)==JFileChooser.APPROVE_OPTION)
-        {
-            myfile=myfilechooser.getSelectedFile();
-            try
-            {
-                Image simg = ImageIO.read( new File(myfile.getAbsolutePath())).getScaledInstance( jLabel7.getWidth(), jLabel7.getHeight(), Image.SCALE_AREA_AVERAGING);
-                jLabel7.setIcon(new ImageIcon(simg));
-            }
-            catch(Exception e)
-            {
-                JOptionPane.showMessageDialog(rootPane, "Cannot read image");
-            }
-        }
 
-    }//GEN-LAST:event_upload1ActionPerformed
+if(myfilechooser.showOpenDialog(rootPane)==JFileChooser.APPROVE_OPTION)
+{
+myfile=myfilechooser.getSelectedFile();
+try
+{ 
+Image simg = ImageIO.read( new File(myfile.getAbsolutePath())).getScaledInstance( jLabel7.getWidth(), jLabel7.getHeight(), Image.SCALE_AREA_AVERAGING);
+jLabel7.setIcon(new ImageIcon(simg));
+}
+catch(Exception e)
+{
+JOptionPane.showMessageDialog(rootPane, "Cannot read image");
+}
+}
+
+
+
+
+    }//GEN-LAST:event_uploadActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Movies;
-    private javax.swing.JButton Movies1;
     private javax.swing.JLabel age;
     private javax.swing.JTextField agebox;
     private javax.swing.ButtonGroup buttonGroup1;
@@ -505,7 +393,6 @@ JOptionPane.showMessageDialog(rootPane, "Error in Connection " + e.getMessage())
     private javax.swing.JLabel phone;
     private javax.swing.JFormattedTextField phonebox;
     private javax.swing.JButton upload;
-    private javax.swing.JButton upload1;
     private javax.swing.JTextField usernamebox;
     // End of variables declaration//GEN-END:variables
 }
