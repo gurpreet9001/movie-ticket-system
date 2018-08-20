@@ -258,7 +258,7 @@ try
 {
 if((malebox.isSelected() || femalebox.isSelected()) )
 {
-String q="insert into details values(?,?,?,?,?,?)";
+String q="insert into part1 values(?,?,?,?,?,?)";
 PreparedStatement mystatement=myconnection.prepareStatement(q);
 mystatement.setString(1, usernamebox.getText());
 mystatement.setString(2, agebox.getText());

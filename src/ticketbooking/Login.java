@@ -5,6 +5,7 @@
  */
 package ticketbooking;
 
+import static java.awt.Event.ENTER;
 import java.sql.*;
 import javax.swing.*;
 
@@ -51,6 +52,17 @@ public class Login extends javax.swing.JFrame implements myvariables {
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
+            }
+        });
+
+        passwordbox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passwordboxActionPerformed(evt);
+            }
+        });
+        passwordbox.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                passwordboxKeyPressed(evt);
             }
         });
 
@@ -163,6 +175,68 @@ public class Login extends javax.swing.JFrame implements myvariables {
  
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void passwordboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordboxActionPerformed
+        
+    }//GEN-LAST:event_passwordboxActionPerformed
+
+    private void passwordboxKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passwordboxKeyPressed
+        switch(evt.getKeyCode()){
+            case ENTER:   try
+ {
+ Connection myconnection = DriverManager.getConnection(PATH+PLACE, USERNAME,PASS); 
+ 
+ try
+ {
+ String myquery="select * from usertable where username=? and password=?";
+ PreparedStatement mystatement = myconnection.prepareStatement(myquery);
+ 
+ mystatement.setString(1, usernamebox.getText());
+ mystatement.setString(2, passwordbox.getText());
+ 
+ ResultSet myresult=mystatement.executeQuery();
+ 
+ if(myresult.next())
+ { 
+ if(myresult.getString("access").equals("admin"))
+ {
+ parent obj=new parent();
+ obj.setVisible(true);
+ obj.setExtendedState(MAXIMIZED_BOTH);
+ }
+ else 
+ {
+ emp_parent obj=new emp_parent();
+ obj.setVisible(true);
+ obj.setExtendedState(MAXIMIZED_BOTH);
+ }
+ 
+ this.dispose();
+ 
+ }
+ else
+ {
+ JOptionPane.showMessageDialog(rootPane,"Wrong username/password");
+ }
+ }
+ catch(Exception e)
+ {
+ JOptionPane.showMessageDialog(rootPane, "Error in Query due to " + e.getMessage());
+ }
+ finally
+ {
+ myconnection.close();
+ }
+ }
+ catch(Exception e)
+ {
+ JOptionPane.showMessageDialog(rootPane, "Error in Connection due to " + e.getMessage());
+ }
+ 
+ 
+                break;
+        }
+    }//GEN-LAST:event_passwordboxKeyPressed
+
     /**
      * @param args the command line arguments
      */
@@ -170,7 +244,7 @@ public class Login extends javax.swing.JFrame implements myvariables {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For part1 see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {

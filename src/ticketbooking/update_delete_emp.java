@@ -243,7 +243,7 @@ myconnection=DriverManager.getConnection(PATH+PLACE,USERNAME,PASS);
 try
 {
 
-String q="delete from details"
+String q="delete from part1"
 + " where phone_no=?";
 PreparedStatement mystatement=myconnection.prepareStatement(q);
 mystatement.setString(1, phonebox.getText());
@@ -340,7 +340,7 @@ myconnection=DriverManager.getConnection(PATH+PLACE,USERNAME,PASS);
 try
 {
 
-String q="update details set name=?, gender=?,email=?,age=?,image=?"
+String q="update part1 set name=?, gender=?,email=?,age=?,image=?"
 + " where phone_no=?";
 PreparedStatement mystatement=myconnection.prepareStatement(q);
 mystatement.setString(1, usernamebox.getText());
@@ -398,7 +398,7 @@ try
 myconnection=DriverManager.getConnection(PATH+PLACE,USERNAME,PASS);
 try
 {
-String a="select * from details where phone_no=?";
+String a="select * from part1 where phone_no=?";
 PreparedStatement mystatement=myconnection.prepareStatement(a); 
 mystatement.setString(1, phonebox.getText());
 

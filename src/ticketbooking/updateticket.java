@@ -71,7 +71,7 @@ public class updateticket extends javax.swing.JInternalFrame implements myvariab
         userID3.setText("Movie");
 
         search.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ticketbooking/search.png"))); // NOI18N
-        search.setText("Search Details");
+        search.setText("Search part1");
         search.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 searchActionPerformed(evt);

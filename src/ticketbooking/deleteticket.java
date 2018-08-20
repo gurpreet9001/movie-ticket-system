@@ -53,7 +53,7 @@ public class deleteticket extends javax.swing.JInternalFrame implements myvariab
         movie.setText("Movie");
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ticketbooking/search.png"))); // NOI18N
-        jButton1.setText("Search Details");
+        jButton1.setText("Search part1");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);

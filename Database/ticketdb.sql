@@ -25,10 +25,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `details`
+-- Table structure for table `part1`
 --
 
-CREATE TABLE `details` (
+CREATE TABLE `part1` (
   `name` varchar(100) NOT NULL,
   `age` int(100) NOT NULL,
   `email` varchar(100) NOT NULL,
@@ -38,10 +38,10 @@ CREATE TABLE `details` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `details`
+-- Dumping data for table `part1`
 --
 
-INSERT INTO `details` (`name`, `age`, `email`, `phone_no`, `gender`, `image`) VALUES
+INSERT INTO `part1` (`name`, `age`, `email`, `phone_no`, `gender`, `image`) VALUES
 ('eagle', 14, 'eagle@gmail.com', '8214174118', 'Female', '153163357314901 EAGLE_01.jpg'),
 ('shubham', 23, 'shubham@gmail.com', '9768451845', 'Male', '153159502339542.jpg'),
 ('mohan', 32, 'mohan@hotmail.com', '9854254763', 'Male', '');
@@ -206,9 +206,9 @@ INSERT INTO `usertable` (`username`, `password`, `access`) VALUES
 --
 
 --
--- Indexes for table `details`
+-- Indexes for table `part1`
 --
-ALTER TABLE `details`
+ALTER TABLE `part1`
   ADD PRIMARY KEY (`phone_no`,`email`);
 
 --
